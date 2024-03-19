@@ -1,33 +1,26 @@
-### **¡Cuidado con Grogu!**
+Proyectos Molones
 
-El cazarrecompensas mandaloriano Din Djarin, conocido como «el Mandaloriano» o simplemente «mando», está a cargo de Grogu mientras viaja por la galaxia realizando todo tipo de encargos. En esta ocasión el encargo es muy especial. Debe entregar huevos de rana (no fertilizados), galletas azules (¡qué ricas!) y unas ranas. Todo ello es muy importante ya que este cargamento es de vital importancia para restablecer
-contacto con Ahsoka Tano.
+¡Bienvenido a Proyectos Molones! 🚀
 
-El objetivo es entregar la mercancía a un contacto en el planeta Nevarro. Él nos dará la información del paradero de Ahsoka, información que usaremos para volver a intentar que sea la maestra de Grogu como Jedi. El problema es que nuestro contacto ha sido muy claro, si no llega la mercancía no hay trato.
+¿Qué es esto?
+¡Ey, qué tal! Aquí te traemos un proyecto de front-end que va a hacer que tus ojos se pongan como platos. En pocas palabras, estamos hablando de un generador de tarjetas de proyectos. ¿Cómo funciona? Fácil, llenas un formulario con la info que quieras sobre tu proyecto y ¡voilà!, una tarjeta molona lista para ser compartida con el mundo.
 
-Mando ha recibido muy buenas recomendaciones sobre tus habilidades custodiando mercancía así que ha decidido contratarte para que todo salga bien. Ayuda a Mando a conseguir su objetivo y tendrás una buena recompensa.
+¿Cómo arrancar el proyecto?
+Para poner esto en marcha, necesitas un poco de HTML, un toque de SASS y un buen puñado de React. Pero hey, no te preocupes, ¡no estamos solos! Usamos VITE para arrancar esto en un abrir y cerrar de ojos. Solo tienes que clonar el repositorio, instalar las dependencias y lanzar el comando mágico vite. ¡Y listo!
 
-### Reglas del juego
+bash
+Copy code
+git clone https://github.com/tu_usuario/proyectos-molones.git
+cd proyectos-molones
+npm install
+npm run dev
+¿Qué necesitas saber?
+Básicamente, si tienes un poco de conocimiento en HTML, SASS y React, estás listo para rockear con nosotros. Si eres nuevo en esto, no te preocupes, ¡aquí estamos para ayudarte! Con un poco de curiosidad y ganas de aprender, pronto estarás generando tarjetas de proyectos más molonas que nunca.
 
-El juego es muy sencillo. Dispondremos de 6 casillas que representan un camino en la
-zona de carga de la Razor Crest que lleva hasta el armario donde se encuentra segura
-la mercancía. De este modo tendremos 7 casillas, 6 del camino y una que representa al
-armario:
+Contribuciones
+¿Quieres formar parte de esta fiesta? ¡Por supuesto que sí! Todos son bienvenidos a aportar con nuevas ideas, mejoras, ¡lo que sea! Solo tienes que hacer un fork del repositorio, hacer tus cambios y enviar un pull request. Nos encanta ver qué ideas tienes en mente y cómo podemos hacer este proyecto aún más molón juntos.
 
-Durante el viaje has hecho muy bien tu trabajo pero ahora debes vaciar el armario. Para ello deberás descargar la mercancía poco a poco. Este es el momento más delicado ya que Grogu puede aprovechar y llegar hasta el armario. Si eso ocurre se comerá lo que encuentre y Mando perderá la oportunidad de saber dónde esta Ahsoka.
-Ergo, te has quedado sin recompensa.
-
-Además de esas 7 piezas tendrás tres recipientes donde se guarda cada tipo de mercancía. De esta manera quedaría:
-
-- Recipiente de las galletas: Tendrá 3 cajas de galletas azules dentro
-- Recipiente de los huevos de rana: Tendrá dentro 3 huevos de rana (sin fertilizar)
-- Recipiente de las ranas: Tendrá dentro 3 ranas
-
-Además de estas piezas tendremos un dado de 4 caras donde cada cara representa una de las siguientes acciones:
-
-- Descargas una caja de galletas azules 🍪
-- Descargas un huevo de rana (con mucho cuidado) 🥚
-- Descargas una rana 🐸
+¡Y eso es todo! Así que, ¿qué estás esperando? ¡Vamos a crear algunos proyectos molones! Si tienes alguna pregunta, no dudes en abrir un issue o ponerte en contacto con nosotros. ¡Nos vemos en el mundo de los proyectos molones! 😎✨
 - Grogu se mueve una casilla 👣
 
 Además habrá una ficha que represente dónde está Grogu. Ganarás el juego si consigues descargar toda la mercancía. Perderás si Grogu llega a la última casilla (el armario).
