@@ -35,7 +35,11 @@ const Main = () => {
 
       <Preview infoProject={infoProject} />
 
-      <Form handleChangeForm={handleChangeForm} infoProject={infoProject} />
+      <Form
+        handleChangeForm={handleChangeForm}
+        setInfoProject={setInfoProject}
+        infoProject={infoProject}
+      />
     </main>
   );
 };

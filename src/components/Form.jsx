@@ -2,49 +2,35 @@ import InputButton from "./InputButton";
 import Button from "./Button";
 //import GetAvatar from "./GetAvatar";
 
-function Form({ handleChangeForm, infoProject }) {
-  const onChangeProject = (event) => {
-    const projectValue = event.target.value;
-    handleChangeForm(projectValue);
+function Form({ handleChangeForm, infoProject, setInfoProject }) {
+  const onChangeProject = (ev) => {
+    setInfoProject({ ...infoProject, projectName: ev.target.value });
+  };
+  const onChangeSlogan = (ev) => {
+    setInfoProject({ ...infoProject, slogan: ev.target.value });
+  };
+  const onChangeRepo = (ev) => {
+    setInfoProject({ ...infoProject, repo: ev.target.value });
+  };
+  const onChangeDemo = (ev) => {
+    setInfoProject({ ...infoProject, demo: ev.target.value });
+  };
+  const onChangeTech = (ev) => {
+    setInfoProject({ ...infoProject, tech: ev.target.value });
+  };
+  const onChangeTitleDesc = (ev) => {
+    setInfoProject({ ...infoProject, descriptionTitle: ev.target.value });
+  };
+  const onChangeDesc = (ev) => {
+    setInfoProject({ ...infoProject, desc: ev.target.value });
   };
 
-  const onChangeSlogan = (event) => {
-    const sloganValue = event.target.value;
-    handleChangeForm(sloganValue);
+  const onChangeName = (ev) => {
+    setInfoProject({ ...infoProject, name: ev.target.value });
   };
 
-  const onChangeDemo = (event) => {
-    const demoValue = event.target.value;
-    handleChangeForm(demoValue);
-  };
-
-  const onChangeRepo = (event) => {
-    const repoValue = event.target.value;
-    handleChangeForm(repoValue);
-  };
-
-  const onChangeTech = (event) => {
-    const techValue = event.target.value;
-    handleChangeForm(techValue);
-  };
-  const onChangeTitleDesc = (event) => {
-    const titleDescValue = event.target.value;
-    handleChangeForm(titleDescValue);
-  };
-
-  const onChangeDesc = (event) => {
-    const descValue = event.target.value;
-    handleChangeForm(descValue);
-  };
-
-  const onChangeName = (event) => {
-    const nameValue = event.target.value;
-    handleChangeForm(nameValue);
-  };
-
-  const onChangeJob = (event) => {
-    const jobValue = event.target.value;
-    handleChangeForm(jobValue);
+  const onChangeJob = (ev) => {
+    setInfoProject({ ...infoProject, job: ev.target.value });
   };
 
   return (
@@ -59,7 +45,6 @@ function Form({ handleChangeForm, infoProject }) {
           id="projectName"
           placeholder="Nombre del proyecto"
           onChange={onChangeProject}
-          value=""
         />
         <input
           className="addForm__input"
