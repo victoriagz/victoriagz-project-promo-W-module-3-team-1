@@ -1,10 +1,15 @@
 import '../scss/components/Preview.scss';
+import defaultAvatar from '../images/avatar.webp';
 
 function Preview({ infoProject, avatar }) {
+
+ const avatarImage = infoProject.image === '' ? defaultAvatar : avatar /* funciona pero no sabemos porque */
+
   
   return (
     <section className='preview'>
-      <div className='projectImage'>{avatar}</div>
+      <div className='projectImage' style = {{backgroundImage: `url 
+      ${avatarImage})`}}></div>
       <article className='card'>
         <h2 className='card__projectTitle'>
           <span className='card__projectTitle--text'>
@@ -13,7 +18,7 @@ function Preview({ infoProject, avatar }) {
         </h2>
 
         <div className='card__author'>
-          <div className='card__authorPhoto'>{avatar}</div>
+          <div className='card__authorPhoto'>{infoProject.image}</div>
           <p className='card__job'>{infoProject.job}</p>
           <h3 className='card__name'>{infoProject.name}</h3>
         </div>
