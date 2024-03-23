@@ -1,7 +1,10 @@
-function Preview({ infoProject }) {
+import '../scss/components/Preview.scss';
+
+function Preview({ infoProject, avatar }) {
+  
   return (
     <section className='preview'>
-      <div className='projectImage'></div>
+      <div className='projectImage'>{avatar}</div>
       <article className='card'>
         <h2 className='card__projectTitle'>
           <span className='card__projectTitle--text'>
@@ -10,7 +13,7 @@ function Preview({ infoProject }) {
         </h2>
 
         <div className='card__author'>
-          <div className='card__authorPhoto'></div>
+          <div className='card__authorPhoto'>{avatar}</div>
           <p className='card__job'>{infoProject.job}</p>
           <h3 className='card__name'>{infoProject.name}</h3>
         </div>

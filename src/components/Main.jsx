@@ -1,33 +1,11 @@
 import LinkButton from './LinkButton';
 import Preview from './Preview';
 import Form from './Form';
-import GetAvatar from './GetAvatar';
 import '../scss/components/Main.scss';
-import { useState } from 'react';
 
-const Main = () => {
-  const [infoProject, setInfoProject] = useState({
-    projectName: 'Elegant Workspace',
-    slogan: 'Diseños Exclusivos',
-    repo: '',
-    demo: '',
-    tech: 'React JS - HTML - CSS',
-    descriptionTitle: 'Product description',
-    desc: `Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-    Nulla, quos? Itaque, molestias eveniet laudantium adipisci
-    vitae ratione`,
-    name: 'Emmelie Bjôrklund',
-    job: 'Full stack Developer',
-    image: '',
-  });
 
-  const changeAvatar = () => {
-    console.log('hey');
-  };
-
-  const handleChangeForm = (id, value) => {
-    setInfoProject({ ...infoProject, [id]: value });
-  };
+const Main = ({ infoProject, updateAvatar, setInfoProject, avatar}) => {
+ 
 
   return (
     <main className='main'>
@@ -39,13 +17,13 @@ const Main = () => {
         <LinkButton textContent='Ver proyectos' />
       </section>
 
-      <Preview infoProject={infoProject} />
+      <Preview infoProject={infoProject} avatar={avatar}/>
 
       <Form
-        handleChangeForm={handleChangeForm}
         setInfoProject={setInfoProject}
         infoProject={infoProject}
-        updateAvatar={changeAvatar}
+        updateAvatar={updateAvatar}
+        avatar={avatar}
       />
     </main>
   );

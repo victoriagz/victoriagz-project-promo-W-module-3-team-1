@@ -1,8 +1,8 @@
-import InputButton from './InputButton';
+
 import Button from './Button';
 import GetAvatar from './GetAvatar';
 
-function Form({ handleChangeForm, infoProject, setInfoProject, updateAvatar }) {
+function Form({ infoProject, setInfoProject, updateAvatar, avatar }) {
   const onChangeProject = (ev) => {
     setInfoProject({ ...infoProject, projectName: ev.target.value });
   };
@@ -120,8 +120,8 @@ function Form({ handleChangeForm, infoProject, setInfoProject, updateAvatar }) {
       </fieldset>
 
       <fieldset className='addForm__group--upload'>
-        <GetAvatar updateAvatar={updateAvatar} text='Subir foto del proyecto' />
-        <GetAvatar updateAvatar={updateAvatar} text='Subir foto de la autora' />
+        <GetAvatar updateAvatar={updateAvatar} avatar={avatar}  text='Subir foto del proyecto' />
+        <GetAvatar updateAvatar={updateAvatar} avatar={avatar} text='Subir foto de la autora' />
         {/* <InputButton
           textContent='Subir foto del proyecto'
           name='image'
