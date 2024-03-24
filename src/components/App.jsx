@@ -1,7 +1,7 @@
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
-import GetAvatar from './GetAvatar';
+//import GetAvatar from './GetAvatar';
 import { useState } from 'react';
 
 
