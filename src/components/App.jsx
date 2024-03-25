@@ -19,11 +19,17 @@ function App() {
     vitae ratione`,
     name: "Emmelie Bjôrklund",
     job: "Full stack Developer",
+    image: "",
   });
   const [avatar, setAvatar] = useState("");
+  const [projectImage, setProjectImage] = useState("");
 
   const changeAvatar = (avatar) => {
     setAvatar(avatar);
+  };
+
+  const changeProjectImage = (projectImage) => {
+    setProjectImage(projectImage);
   };
 
   // const handleChangeForm = (id, value) => {
@@ -41,7 +47,9 @@ function App() {
           }
           infoProject={infoProject}
           updateAvatar={changeAvatar}
+          updateProjectImage={changeProjectImage}
           avatar={avatar}
+          projectImage={projectImage}
         />
 
         <Footer />

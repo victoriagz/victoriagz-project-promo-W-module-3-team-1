@@ -2,16 +2,16 @@ import "../scss/components/Preview.scss";
 import defaultAvatar from "../images/avatar.webp";
 import bookExample from "../images/ebook-example.jpg";
 
-function Preview({ infoProject, avatar }) {
+function Preview({ infoProject, avatar, projectImage }) {
   const avatarImage = avatar === "" ? defaultAvatar : avatar;
-  const projectImage = avatar === "" ? bookExample : avatar;
+  const imageProject = projectImage === "" ? bookExample : projectImage;
 
   return (
     <section className="preview">
       <div
         className="projectImage"
         style={{
-          backgroundImage: `url(${projectImage})`,
+          backgroundImage: `url(${imageProject})`,
         }}
       ></div>
       <article className="card">

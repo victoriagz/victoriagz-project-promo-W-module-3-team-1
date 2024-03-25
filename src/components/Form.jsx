@@ -1,7 +1,14 @@
 import Button from "./Button";
 import GetAvatar from "./GetAvatar";
 
-function Form({ infoProject, setInfoProject, updateAvatar, avatar }) {
+function Form({
+  infoProject,
+  setInfoProject,
+  updateAvatar,
+  avatar,
+  updateProjectImage,
+  projectImage,
+}) {
   const onChangeProject = (ev) => {
     setInfoProject({ ...infoProject, projectName: ev.target.value });
   };
@@ -120,8 +127,8 @@ function Form({ infoProject, setInfoProject, updateAvatar, avatar }) {
 
       <fieldset className="addForm__group--upload">
         <GetAvatar
-          updateAvatar={updateAvatar}
-          avatar={avatar}
+          updateProjectImage={updateProjectImage}
+          projectImage={projectImage}
           text="Subir foto del proyecto" /*onClick = {onChangeImage}*/
         />
         <GetAvatar
