@@ -34,10 +34,9 @@ function App() {
 
   return (
     <>
-      <Header />
       <div className="container">
+        <Header />
         <Main />
-
         <Form
           setInfoProject={setInfoProject}
           infoProject={infoProject}
@@ -49,7 +48,6 @@ function App() {
           avatar={avatar}
           projectImage={projectImage}
         />
-
         <Footer />
       </div>
     </>
