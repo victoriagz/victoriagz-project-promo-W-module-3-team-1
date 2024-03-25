@@ -1,6 +1,6 @@
 import Button from "./Button";
 import GetAvatar from "./GetAvatar";
-import "../scss/components/Form.scss";
+import "../scss/components/Main.scss";
 
 function Form({
   infoProject,

@@ -8,10 +8,6 @@ fieldset {
   border: 0;
 }
 
-.container {
-  padding: 22px 22px 0 22px;
-  background-color: var(--color-dark);
-}
 
 
 
@@ -63,6 +59,13 @@ fieldset {
   }
 }
 
+.container {
+  padding: 22px 22px 0 22px;
+  background-color: var(--color-dark);
+}
 
 
+.containers{
+  display: flex;
+}
 

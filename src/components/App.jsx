@@ -37,17 +37,20 @@ function App() {
       <div className="container">
         <Header />
         <Main />
-        <Form
-          setInfoProject={setInfoProject}
-          infoProject={infoProject}
-          setUpdateAvatar={updateAvatar}
-          setUpdateProject={setProjectImage}
-        />
-        <Preview
-          infoProject={infoProject}
-          avatar={avatar}
-          projectImage={projectImage}
-        />
+        <div className="containers">
+          <Preview
+            infoProject={infoProject}
+            avatar={avatar}
+            projectImage={projectImage}
+          />
+          <Form
+            setInfoProject={setInfoProject}
+            infoProject={infoProject}
+            setUpdateAvatar={updateAvatar}
+            setUpdateProject={setProjectImage}
+          />
+        </div>
+
         <Footer />
       </div>
     </>
