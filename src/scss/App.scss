@@ -8,6 +8,13 @@ fieldset {
   border: 0;
 }
 
+.container {
+  padding: 22px 22px 0 22px;
+  background-color: var(--color-dark);
+}
+
+
+
 :root {
   /* COLORS */
 
@@ -56,10 +63,6 @@ fieldset {
   }
 }
 
-.container {
-  padding: 22px 22px 0 22px;
-  background-color: var(--color-dark);
-}
 
 
 
