@@ -33,22 +33,26 @@ function App() {
   };
 
   return (
-    <div className="container">
+    <>
       <Header />
-      <Main />
-      <Form
-        setInfoProject={setInfoProject}
-        infoProject={infoProject}
-        setUpdateAvatar={updateAvatar}
-        setUpdateProject={setProjectImage}
-      />
-      <Preview
-        infoProject={infoProject}
-        avatar={avatar}
-        projectImage={projectImage}
-      />
-      <Footer />
-    </div>
+      <div className="container">
+        <Main />
+
+        <Form
+          setInfoProject={setInfoProject}
+          infoProject={infoProject}
+          setUpdateAvatar={updateAvatar}
+          setUpdateProject={setProjectImage}
+        />
+        <Preview
+          infoProject={infoProject}
+          avatar={avatar}
+          projectImage={projectImage}
+        />
+
+        <Footer />
+      </div>
+    </>
   );
 }
 

@@ -1,6 +1,6 @@
-import "../scss/components/Preview.scss";
 import defaultAvatar from "../images/avatar.webp";
 import defaultProject from "../images/ebook-example.jpg";
+import "../scss/components/Preview.scss";
 
 function Preview({ infoProject, projectImage, avatar }) {
   const projectAvatar = avatar || defaultAvatar;
