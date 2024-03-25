@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 //import defaultAvatar from "../images/defaultAvatar.png";
 import "../scss/components/GetAvatar.scss";
 
-function GetAvatar({ updateAvatar, text }) {
+function GetAvatar({ setAvatar, text }) {
   // creamos una propiedad de la clase que es la que vamos a usar en varios métodos para cargar la imagen
   // esto es un manejador de ficheros
   const fr = new FileReader();
@@ -56,7 +56,7 @@ function GetAvatar({ updateAvatar, text }) {
 
     // aquí hago lifting con los datos del fichero
     // lo que haga el componente madre con esta información es otro problema diferente
-    updateAvatar(image);
+    setAvatar(image);
     // updateProjectImage(image);
   };
 

@@ -1,10 +1,12 @@
 import Header from "./Header";
 import Main from "./Main";
+import Preview from "./Preview";
+import Form from "./Form";
 import Footer from "./Footer";
-// import GetAvatar from "./GetAvatar";
 import { useState } from "react";
-
 import "../scss/App.scss";
+import defaultAvatar from "../images/avatar.webp";
+import defaultProject from "../images/ebook-example.jpg";
 
 function App() {
   const [infoProject, setInfoProject] = useState({
@@ -21,32 +23,24 @@ function App() {
     job: "Full stack Developer",
     image: "",
   });
-  const [avatar, setAvatar] = useState("");
-  const [projectImage, setProjectImage] = useState("");
+  const [avatar, setAvatar] = useState(defaultAvatar);
+  const [projectImage, setProjectImage] = useState(defaultProject);
 
-  const changeAvatar = (avatar) => {
-    setAvatar(avatar);
-  };
 
-  // const changeProjectImage = (projectImage) => {
-  //   setProjectImage(projectImage);
-  // };
 
   return (
     <>
       <div className="container">
         <Header />
 
-        <Main
-          /*handleChangeForm= {handleChangeForm}*/ setInfoProject={
-            setInfoProject
-          }
-          infoProject={infoProject}
-          updateAvatar={changeAvatar}
-          // updateProjectImage={changeProjectImage}
-          avatar={avatar}
-          // projectImage={projectImage}
-        />
+        <Main/>
+        <Preview avatar={avatar} 
+        projectImage={projectImage}
+        infoProject={infoProject}/>
+        <Form  infoProject={infoProject}
+        setAvatar={setAvatar} setProjectImage={setProjectImage}
+        setInfoProject={setInfoProject}/>
+        
 
         <Footer />
       </div>
