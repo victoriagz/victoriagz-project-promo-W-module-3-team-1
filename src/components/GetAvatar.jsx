@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 //import defaultAvatar from "../images/defaultAvatar.png";
 import "../scss/components/GetAvatar.scss";
 
-function GetAvatar({ updateAvatar, text, updateProjectImage }) {
+function GetAvatar({ updateAvatar, text }) {
   // creamos una propiedad de la clase que es la que vamos a usar en varios métodos para cargar la imagen
   // esto es un manejador de ficheros
   const fr = new FileReader();
@@ -52,11 +52,12 @@ function GetAvatar({ updateAvatar, text, updateProjectImage }) {
 
     //  fr.result contiene los datos del fichero en un formato que se llama base64 que nos vale por que podemos usarlo para pintar una imagen en HTML
     const image = fr.result;
+    // const image2 = fr.result;
 
     // aquí hago lifting con los datos del fichero
     // lo que haga el componente madre con esta información es otro problema diferente
     updateAvatar(image);
-    updateProjectImage(image);
+    // updateProjectImage(image);
   };
 
   return (
@@ -77,7 +78,7 @@ function GetAvatar({ updateAvatar, text, updateProjectImage }) {
 GetAvatar.propTypes = {
   avatar: PropTypes.string,
   updateAvatar: PropTypes.func.isRequired,
-  updateProjectImage: PropTypes.func.isRequired,
+  // updateProjectImage: PropTypes.func.isRequired,
   text: PropTypes.string,
 };
 

@@ -22,18 +22,14 @@ function App() {
     image: "",
   });
   const [avatar, setAvatar] = useState("");
-  const [projectImage, setProjectImage] = useState("");
+  // const [projectImage, setProjectImage] = useState("");
 
   const changeAvatar = (avatar) => {
     setAvatar(avatar);
   };
 
-  const changeProjectImage = (projectImage) => {
-    setProjectImage(projectImage);
-  };
-
-  // const handleChangeForm = (id, value) => {
-  //   setInfoProject({ ...infoProject, [id]: value });
+  // const changeProjectImage = (projectImage) => {
+  //   setProjectImage(projectImage);
   // };
 
   return (
@@ -47,9 +43,9 @@ function App() {
           }
           infoProject={infoProject}
           updateAvatar={changeAvatar}
-          updateProjectImage={changeProjectImage}
+          // updateProjectImage={changeProjectImage}
           avatar={avatar}
-          projectImage={projectImage}
+          // projectImage={projectImage}
         />
 
         <Footer />

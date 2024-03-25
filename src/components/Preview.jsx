@@ -2,9 +2,9 @@ import "../scss/components/Preview.scss";
 import defaultAvatar from "../images/avatar.webp";
 import bookExample from "../images/ebook-example.jpg";
 
-function Preview({ infoProject, avatar, projectImage }) {
+function Preview({ infoProject, avatar }) {
   const avatarImage = avatar === "" ? defaultAvatar : avatar;
-  const imageProject = projectImage === "" ? bookExample : projectImage;
+  const imageProject = avatar === "" ? bookExample : avatar;
 
   return (
     <section className="preview">

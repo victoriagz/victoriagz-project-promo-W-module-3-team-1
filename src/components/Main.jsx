@@ -8,8 +8,8 @@ const Main = ({
   updateAvatar,
   setInfoProject,
   avatar,
-  updateProjectImage,
-  projectImage,
+  // updateProjectImage,
+  // projectImage,
 }) => {
   return (
     <main className="main">
@@ -27,9 +27,9 @@ const Main = ({
         setInfoProject={setInfoProject}
         infoProject={infoProject}
         updateAvatar={updateAvatar}
-        updateProjectImage={updateProjectImage}
+        // updateProjectImage={updateProjectImage}
         avatar={avatar}
-        projectImage={projectImage}
+        // projectImage={projectImage}
       />
     </main>
   );
