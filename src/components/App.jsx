@@ -1,10 +1,11 @@
 import Header from "./Header";
-import Main from "./Main";
 import Preview from "./Preview";
+import LinkButton from "./LinkButton";
 import Form from "./Form";
 import Footer from "./Footer";
 import { useState } from "react";
 import "../scss/App.scss";
+import "../scss/components/Main.scss"
 import defaultAvatar from "../images/avatar.webp";
 import defaultProject from "../images/ebook-example.jpg";
 
@@ -33,15 +34,28 @@ function App() {
       <div className="container">
         <Header />
 
-        <Main/>
-        <Preview avatar={avatar} 
-        projectImage={projectImage}
-        infoProject={infoProject}/>
-        <Form  infoProject={infoProject}
-        setAvatar={setAvatar} setProjectImage={setProjectImage}
-        setInfoProject={setInfoProject}/>
+        <main className="main">
+          <section className="hero">
+            <h2 className="title">Proyectos molones</h2>
+            <p className="hero__text">
+              Escaparate en línea para recoger ideas a través de la tecnología
+            </p>
+            <LinkButton textContent="Ver proyectos" />
+          </section>
+            
+            <Preview avatar={avatar} 
+            projectImage={projectImage}
+            infoProject={infoProject}/>
+            <Form  infoProject={infoProject}
+            setAvatar={setAvatar} setProjectImage={setProjectImage}
+            setInfoProject={setInfoProject}/>
         
 
+          
+
+     
+    </main>
+       
         <Footer />
       </div>
     </>
