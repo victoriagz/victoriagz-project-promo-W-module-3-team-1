@@ -1,12 +1,18 @@
-import Header from "./Header";
-import Main from "./Main";
-import Footer from "./Footer";
-// import GetAvatar from "./GetAvatar";
 import { useState } from "react";
+import Header from "./Header";
+import Preview from "./Preview";
+import Main from "./Main";
+import Form from "./Form";
+import Footer from "./Footer";
+import defaultAvatar from "../images/avatar.webp";
+import defaultProject from "../images/ebook-example.jpg";
 
 import "../scss/App.scss";
 
 function App() {
+  const [avatar, setAvatar] = useState(defaultAvatar);
+  const [projectImage, setProjectImage] = useState(defaultProject);
+
   const [infoProject, setInfoProject] = useState({
     projectName: "Elegant Workspace",
     slogan: "Diseños Exclusivos",
@@ -21,36 +27,28 @@ function App() {
     job: "Full stack Developer",
     image: "",
   });
-  const [avatar, setAvatar] = useState("");
-  const [projectImage, setProjectImage] = useState("");
 
-  const changeAvatar = (avatar) => {
+  const updateAvatar = (avatar) => {
     setAvatar(avatar);
   };
 
-  // const changeProjectImage = (projectImage) => {
-  //   setProjectImage(projectImage);
-  // };
-
   return (
-    <>
-      <div className="container">
-        <Header />
-
-        <Main
-          /*handleChangeForm= {handleChangeForm}*/ setInfoProject={
-            setInfoProject
-          }
-          infoProject={infoProject}
-          updateAvatar={changeAvatar}
-          // updateProjectImage={changeProjectImage}
-          avatar={avatar}
-          // projectImage={projectImage}
-        />
-
-        <Footer />
-      </div>
-    </>
+    <div className="container">
+      <Header />
+      <Main />
+      <Form
+        setInfoProject={setInfoProject}
+        infoProject={infoProject}
+        setUpdateAvatar={updateAvatar}
+        setUpdateProject={setProjectImage}
+      />
+      <Preview
+        infoProject={infoProject}
+        avatar={avatar}
+        projectImage={projectImage}
+      />
+      <Footer />
+    </div>
   );
 }
 

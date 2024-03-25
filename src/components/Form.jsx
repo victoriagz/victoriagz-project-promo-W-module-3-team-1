@@ -4,10 +4,8 @@ import GetAvatar from "./GetAvatar";
 function Form({
   infoProject,
   setInfoProject,
-  updateAvatar,
-  avatar,
-  // updateProjectImage,
-  // projectImage,
+  setUpdateAvatar,
+  setUpdateProject,
 }) {
   const onChangeProject = (ev) => {
     setInfoProject({ ...infoProject, projectName: ev.target.value });
@@ -37,6 +35,14 @@ function Form({
 
   const onChangeJob = (ev) => {
     setInfoProject({ ...infoProject, job: ev.target.value });
+  };
+
+  const updateAuthorPhoto = (photo) => {
+    setUpdateAvatar(photo);
+  };
+
+  const updateProjectPhoto = (photo) => {
+    setUpdateProject(photo);
   };
 
   return (
@@ -127,14 +133,12 @@ function Form({
 
       <fieldset className="addForm__group--upload">
         <GetAvatar
-          updateAvatar={updateAvatar}
-          avatar={avatar}
-          text="Subir foto del proyecto" /*onClick = {onChangeImage}*/
+          setUpdateAvatar={updateAuthorPhoto}
+          text="Subir foto del autor"
         />
         <GetAvatar
-          updateAvatar={updateAvatar}
-          avatar={avatar}
-          text="Subir foto de la autora"
+          setUpdateAvatar={updateProjectPhoto}
+          text="Subir foto del proyecto"
         />
 
         <Button textContent="Guardar proyectos" />

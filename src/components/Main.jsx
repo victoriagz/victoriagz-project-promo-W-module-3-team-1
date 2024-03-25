@@ -1,16 +1,7 @@
 import LinkButton from "./LinkButton";
-import Preview from "./Preview";
-import Form from "./Form";
 import "../scss/components/Main.scss";
 
-const Main = ({
-  infoProject,
-  updateAvatar,
-  setInfoProject,
-  avatar,
-  // updateProjectImage,
-  // projectImage,
-}) => {
+const Main = () => {
   return (
     <main className="main">
       <section className="hero">
@@ -20,17 +11,6 @@ const Main = ({
         </p>
         <LinkButton textContent="Ver proyectos" />
       </section>
-
-      <Preview infoProject={infoProject} avatar={avatar} />
-
-      <Form
-        setInfoProject={setInfoProject}
-        infoProject={infoProject}
-        updateAvatar={updateAvatar}
-        // updateProjectImage={updateProjectImage}
-        avatar={avatar}
-        // projectImage={projectImage}
-      />
     </main>
   );
 };
