@@ -1,7 +1,7 @@
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
-import GetAvatar from "./GetAvatar";
+// import GetAvatar from "./GetAvatar";
 import { useState } from "react";
 
 import "../scss/App.scss";
@@ -22,7 +22,7 @@ function App() {
     image: "",
   });
   const [avatar, setAvatar] = useState("");
-  // const [projectImage, setProjectImage] = useState("");
+  const [projectImage, setProjectImage] = useState("");
 
   const changeAvatar = (avatar) => {
     setAvatar(avatar);
