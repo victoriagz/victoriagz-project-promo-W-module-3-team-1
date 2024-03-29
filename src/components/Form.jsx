@@ -1,50 +1,62 @@
 import Button from "./Button";
 import GetAvatar from "./GetAvatar";
+import CardUrl from "./CardUrl";
 
 function Form({
   infoProject,
-  setInfoProject,
+  onChangeValue,
   setProjectImage,
   setAvatar,
- 
+  onClickSave,
+  cardUrl,
 }) {
-  const onChangeProject = (ev) => {
-    setInfoProject({ ...infoProject, projectName: ev.target.value });
+  const handleInfoProject = (event) => {
+    const value = event.target.value;
+    const id = event.target.id;
+    onChangeValue(value, id);
   };
-  const onChangeSlogan = (ev) => {
-    setInfoProject({ ...infoProject, slogan: ev.target.value });
-  };
-  const onChangeRepo = (ev) => {
-    setInfoProject({ ...infoProject, repo: ev.target.value });
-  };
-  const onChangeDemo = (ev) => {
-    setInfoProject({ ...infoProject, demo: ev.target.value });
-  };
-  const onChangeTech = (ev) => {
-    setInfoProject({ ...infoProject, tech: ev.target.value });
-  };
-  const onChangeTitleDesc = (ev) => {
-    setInfoProject({ ...infoProject, descriptionTitle: ev.target.value });
-  };
-  const onChangeDesc = (ev) => {
-    setInfoProject({ ...infoProject, desc: ev.target.value });
-  };
+  // const onChangeProject = (ev) => {
+  //   setInfoProject({ ...infoProject, projectName: ev.target.value });
+  // };
 
-  const onChangeName = (ev) => {
-    setInfoProject({ ...infoProject, name: ev.target.value });
-  };
+  // const onChangeSlogan = (ev) => {
+  //   setInfoProject({ ...infoProject, slogan: ev.target.value });
+  // };
+  // const onChangeRepo = (ev) => {
+  //   setInfoProject({ ...infoProject, repo: ev.target.value });
+  // };
+  // const onChangeDemo = (ev) => {
+  //   setInfoProject({ ...infoProject, demo: ev.target.value });
+  // };
+  // const onChangeTech = (ev) => {
+  //   setInfoProject({ ...infoProject, tech: ev.target.value });
+  // };
+  // const onChangeTitleDesc = (ev) => {
+  //   setInfoProject({ ...infoProject, descriptionTitle: ev.target.value });
+  // };
+  // const onChangeDesc = (ev) => {
+  //   setInfoProject({ ...infoProject, desc: ev.target.value });
+  // };
 
-  const onChangeJob = (ev) => {
-    setInfoProject({ ...infoProject, job: ev.target.value });
-  };
+  // const onChangeName = (ev) => {
+  //   setInfoProject({ ...infoProject, name: ev.target.value });
+  // };
 
-  const updateAuthorPhoto =(photo)=> {
+  // const onChangeJob = (ev) => {
+  //   setInfoProject({ ...infoProject, job: ev.target.value });
+  // };
+
+  const updateAuthorPhoto = (photo) => {
     setAvatar(photo);
   };
-  const updateProjectPhoto =(photo)=> {
+  const updateProjectPhoto = (photo) => {
     setProjectImage(photo);
-  }
+  };
 
+  const handleSaveProject = (ev) => {
+    ev.preventDefault();
+    onClickSave();
+  };
 
   return (
     <form className="addForm">
@@ -57,7 +69,7 @@ function Form({
           name="projectName"
           id="projectName"
           placeholder="Nombre del proyecto"
-          onChange={onChangeProject}
+          onChange={handleInfoProject}
         />
         <input
           className="addForm__input"
@@ -65,7 +77,7 @@ function Form({
           name="slogan"
           id="slogan"
           placeholder="Slogan"
-          onChange={onChangeSlogan}
+          onChange={handleInfoProject}
         />
         <div className="addForm__2col">
           <input
@@ -74,7 +86,7 @@ function Form({
             name="repo"
             id="repo"
             placeholder="Repositorio"
-            onChange={onChangeRepo}
+            onChange={handleInfoProject}
           />
           <input
             className="addForm__input"
@@ -82,16 +94,16 @@ function Form({
             name="demo"
             id="demo"
             placeholder="Demo"
-            onChange={onChangeDemo}
+            onChange={handleInfoProject}
           />
         </div>
         <input
           className="addForm__input"
           type="text"
-          name="technologies"
-          id="technologies"
+          name="tech"
+          id="tech"
           placeholder="Tecnologías"
-          onChange={onChangeTech}
+          onChange={handleInfoProject}
         />
         <input
           className="addForm__input"
@@ -99,7 +111,7 @@ function Form({
           name="descriptionTitle"
           id="descriptionTitle"
           placeholder="Título Descripción"
-          onChange={onChangeTitleDesc}
+          onChange={handleInfoProject}
         />
         <textarea
           className="addForm__input"
@@ -108,7 +120,7 @@ function Form({
           id="desc"
           placeholder="Descripción"
           rows="5"
-          onChange={onChangeDesc}
+          onChange={handleInfoProject}
         ></textarea>
       </fieldset>
 
@@ -120,7 +132,7 @@ function Form({
           name="name"
           id="name"
           placeholder="Nombre"
-          onChange={onChangeName}
+          onChange={handleInfoProject}
         />
         <input
           className="addForm__input"
@@ -128,22 +140,24 @@ function Form({
           name="job"
           id="job"
           placeholder="Trabajo"
-          onChange={onChangeJob}
+          onChange={handleInfoProject}
         />
       </fieldset>
 
       <fieldset className="addForm__group--upload">
         <GetAvatar
           setAvatar={updateProjectPhoto}
-          text="Subir foto del proyecto" 
+          text="Subir foto del proyecto"
         />
         <GetAvatar
           setAvatar={updateAuthorPhoto}
           text="Subir foto de la autora"
         />
 
-        <Button textContent="Guardar proyectos" />
+        <Button textContent="Guardar proyectos" onClick={handleSaveProject} />
       </fieldset>
+      {cardUrl && <CardUrl cardUrl={cardUrl} />}
+      {console.log("card", cardUrl)}
     </form>
   );
 }

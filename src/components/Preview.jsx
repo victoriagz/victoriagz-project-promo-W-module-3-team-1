@@ -11,7 +11,7 @@ function Preview({ avatar, projectImage, infoProject }) {
       <div
         className="projectImage"
         style={{
-          backgroundImage: `url(${projectPreviewImage})`,
+          backgroundImage: `url(${infoProject.image})`,
         }}
       ></div>
       <article className="card">
@@ -25,7 +25,7 @@ function Preview({ avatar, projectImage, infoProject }) {
           <div
             className="card__authorPhoto"
             style={{
-              backgroundImage: `url(${projectAvatar})`,
+              backgroundImage: `url(${infoProject.photo})`,
             }}
           ></div>
           <p className="card__job">{infoProject.job}</p>
