@@ -1,17 +1,12 @@
 import "../scss/components/Preview.scss";
-import defaultAvatar from "../images/avatar.webp";
-import bookExample from "../images/ebook-example.jpg";
 
 function Preview({ avatar, projectImage, infoProject }) {
-  const projectAvatar = avatar || defaultAvatar;
-  const projectPreviewImage = projectImage || bookExample;
-
   return (
     <section className="preview">
       <div
         className="projectImage"
         style={{
-          backgroundImage: `url(${infoProject.image})`,
+          backgroundImage: `url(${projectImage || "../images/ebook-example.jpg"})`,
         }}
       ></div>
       <article className="card">
@@ -25,15 +20,15 @@ function Preview({ avatar, projectImage, infoProject }) {
           <div
             className="card__authorPhoto"
             style={{
-              backgroundImage: `url(${infoProject.photo})`,
+              backgroundImage: `url(${avatar || "../images/avatar.webp"})`,
             }}
           ></div>
           <p className="card__job">{infoProject.job}</p>
-          <h3 className="card__name">{infoProject.name}</h3>
+          <h3 className="card__name">{infoProject.autor}</h3>
         </div>
 
         <div className="card__project">
-          <h3 className="card__name">{infoProject.projectName}</h3>
+          <h3 className="card__name">{infoProject.name}</h3>
           <p className="card__slogan">{infoProject.slogan}</p>
           <h3 className="card__descriptionTitle">
             {infoProject.descriptionTitle}
@@ -41,7 +36,7 @@ function Preview({ avatar, projectImage, infoProject }) {
           <p className="card__description">{infoProject.desc}</p>
 
           <div className="card__technicalInfo">
-            <p className="card__technologies">{infoProject.tech}</p>
+            <p className="card__technologies">{infoProject.technologies}</p>
 
             <a
               className="icon icon__www"

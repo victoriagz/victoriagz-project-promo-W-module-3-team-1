@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./Header";
 import Preview from "./Preview";
 import LinkButton from "./LinkButton";
@@ -10,49 +10,61 @@ import "../scss/components/Main.scss";
 import defaultAvatar from "../images/avatar.webp";
 import defaultProject from "../images/ebook-example.jpg";
 
+
 function App() {
   const [infoProject, setInfoProject] = useState(
     localStorage.get("infoProject") || {
-      projectName: "Elegant Workspace",
+      name: "Elegant Workspace",
       slogan: "Diseños Exclusivos",
       repo: "",
       demo: "",
-      tech: "React JS - HTML - CSS",
-      descriptionTitle: "Product description",
+      technologies: "React JS - HTML - CSS",
+      // descriptionTitle: "Product description",
       desc: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla, quos? Itaque, molestias eveniet laudantium adipisci vitae ratione`,
-      name: "Emmelie Bjôrklund",
+      autor: "Emmelie Bjôrklund",
       job: "Full stack Developer",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/4/4d/Beautiful_landscape.JPG",
+      "https://www.google.com/search?sca_esv=6494f03cb68baf5a&rlz=1C5CHFA_enES840ES844&sxsrf=ACQVn09rHKvLlAIeVYnezRIFDFfwQ1uLaA:1711824521084&q=perros&tbm=isch&source=lnms&prmd=ivnbz&sa=X&ved=2ahUKEwiGz_yj05yFAxV8U6QEHV5lCWsQ0pQJegQIDRAB&biw=1434&bih=716&dpr=2#imgrc=UmrqAOU7A1ZfBM" ,
       photo:
-        "https://img.freepik.com/foto-gratis/mujer-hermosa-joven-mirando-camara-chica-moda-verano-casual-camiseta-blanca-pantalones-cortos-hembra-positiva-muestra-emociones-faciales-modelo-divertido-aislado-amarillo_158538-15796.jpg",
+      "https://www.google.com/search?sca_esv=6494f03cb68baf5a&rlz=1C5CHFA_enES840ES844&sxsrf=ACQVn09rHKvLlAIeVYnezRIFDFfwQ1uLaA:1711824521084&q=perros&tbm=isch&source=lnms&prmd=ivnbz&sa=X&ved=2ahUKEwiGz_yj05yFAxV8U6QEHV5lCWsQ0pQJegQIDRAB&biw=1434&bih=716&dpr=2#imgrc=UmrqAOU7A1ZfBM",
     }
   );
   const [avatar, setAvatar] = useState(defaultAvatar);
   const [projectImage, setProjectImage] = useState(defaultProject);
   const [url, setUrl] = useState("");
 
-  const handleCreateProject = () => {
+ 
+  useEffect(() => {
     fetch("https://dev.adalab.es/api/projectCard", {
       method: "POST",
       body: JSON.stringify(infoProject),
       headers: { "Content-type": "application/json" },
     })
       .then((response) => response.json())
-      .then((result) => {
-        setUrl(result.cardURL);
+      .then((result) => { 
+         setUrl(result.cardURL);
+         console.log('result', result);
+        
       })
       .catch((error) => console.log(error));
-  };
-
-  // useEffect(() => {
-  //   localStorage.set("infoProject", infoProject);
-  // }, [infoProject]);
+  }, []);
+ 
+ 
 
   const handleProjectInfo = (value, id) => {
     setInfoProject({ ...infoProject, [id]: value });
     localStorage.set("infoProject", infoProject);
   };
+  const handleAvatar = (value, id) => {
+    setAvatar({...infoProject, [id]: value });
+    localStorage.set("avatar", avatar);
+  };
+
+  const handlePhoto = (value, id) => {
+    setProjectImage({...infoProject, [id]: value });
+    localStorage.set("photo", projectImage);
+  };
+
 
   return (
     <div className="container">
@@ -73,10 +85,10 @@ function App() {
           cardUrl={url}
         />
         <Form
-          setAvatar={setAvatar}
-          setProjectImage={setProjectImage}
+          setAvatar={handleAvatar}
+          setProjectImage={handlePhoto}
           onChangeValue={handleProjectInfo}
-          onClickSave={handleCreateProject}
+         
           cardUrl={url}
         />
       </main>
