@@ -46,12 +46,12 @@ function Form({
   //   setInfoProject({ ...infoProject, job: ev.target.value });
   // };
 
-  const updateAuthorPhoto = (photo) => {
-    setAvatar(photo);
-  };
-  const updateProjectPhoto = (photo) => {
-    setProjectImage(photo);
-  };
+  // const updateAuthorPhoto = (photo) => {
+  //   setAvatar(photo);
+  // };
+  // const updateProjectPhoto = (photo) => {
+  //   setProjectImage(photo);
+  // };
 
   const handleSaveProject = (ev) => {
     ev.preventDefault();
@@ -146,11 +146,11 @@ function Form({
 
       <fieldset className="addForm__group--upload">
         <GetAvatar
-          setAvatar={updateProjectPhoto}
+          setAvatar={handleInfoProject}
           text="Subir foto del proyecto"
         />
         <GetAvatar
-          setAvatar={updateAuthorPhoto}
+          setAvatar={handleInfoProject}
           text="Subir foto de la autora"
         />
 
