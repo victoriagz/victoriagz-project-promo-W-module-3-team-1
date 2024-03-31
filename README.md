@@ -4,7 +4,7 @@
 
 ### Quiénes somos
 
-¡Ey, qué tal! Somos Victoria Gonzalez, Noelia Ariza, Paula Sanz y Valentina Lupla, cuatro programadoras en formación del bootcamp Adalab que vienen de diversos sectores para entrar en el mundo de la programación.
+¡Ey, qué tal! Somos Victoria Gonzalez, Noelia Ariza, Paula Sanz y Valentina Pláate, cuatro programadoras en formación del bootcamp Adalab que vienen de diversos sectores para entrar en el mundo de la programación.
 
 Os traemos un proyecto de front-end que va a falicitar muchas vidas. En pocas palabras, estamos hablando de un generador de tarjetas de proyectos. ¿Cómo funciona? Fácil, llenas un formulario con la info que quieras sobre tu proyecto y ¡voilà!, una tarjeta molona lista para ser compartida con el mundo.
 
