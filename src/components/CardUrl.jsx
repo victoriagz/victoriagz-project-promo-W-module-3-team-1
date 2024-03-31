@@ -1,3 +1,4 @@
+import "../scss/components/CardUrl.scss";
 import PropTypes from "prop-types";
 
 function CardUrl({ cardUrl }) {
