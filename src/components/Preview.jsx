@@ -7,7 +7,7 @@ function Preview({ infoProject }) {
         className="projectImage"
         style={{
           backgroundImage: `url(${
-            infoProject.photo || "../images/adalab.png"
+            infoProject.image || "../images/adalab.png"
           })`,
         }}
       ></div>
@@ -23,7 +23,7 @@ function Preview({ infoProject }) {
             className="card__authorPhoto"
             style={{
               backgroundImage: `url(${
-                infoProject.image || "../images/adalab.png"
+                infoProject.photo || "../images/adalab.png"
               })`,
             }}
           ></div>
