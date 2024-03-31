@@ -1,8 +1,9 @@
+import PropTypes from "prop-types";
 import Button from "./Button";
 import GetAvatar from "./GetAvatar";
 import CardUrl from "./CardUrl";
 
-function Form({ onChangeValue, onClickSave, cardUrl }) {
+function Form({ onChangeValue, onClickSave, cardUrl, infoProject }) {
   const handleInfoProject = (event, id) => {
     if (event.target?.result) {
       onChangeValue(event.target.result, id);
@@ -28,6 +29,7 @@ function Form({ onChangeValue, onClickSave, cardUrl }) {
           type="text"
           name="name"
           id="name"
+          value={infoProject.name}
           placeholder="Nombre del proyecto"
           onChange={handleInfoProject}
         />
@@ -36,6 +38,7 @@ function Form({ onChangeValue, onClickSave, cardUrl }) {
           type="text"
           name="slogan"
           id="slogan"
+          value={infoProject.slogan}
           placeholder="Slogan"
           onChange={handleInfoProject}
         />
@@ -45,6 +48,7 @@ function Form({ onChangeValue, onClickSave, cardUrl }) {
             type="url"
             name="repo"
             id="repo"
+            value={infoProject.repo}
             placeholder="Repositorio"
             onChange={handleInfoProject}
           />
@@ -53,6 +57,7 @@ function Form({ onChangeValue, onClickSave, cardUrl }) {
             type="url"
             name="demo"
             id="demo"
+            value={infoProject.demo}
             placeholder="Demo"
             onChange={handleInfoProject}
           />
@@ -62,6 +67,7 @@ function Form({ onChangeValue, onClickSave, cardUrl }) {
           type="text"
           name="technologies"
           id="technologies"
+          value={infoProject.technologies}
           placeholder="Tecnologías"
           onChange={handleInfoProject}
         />
@@ -72,6 +78,7 @@ function Form({ onChangeValue, onClickSave, cardUrl }) {
           name="desc"
           id="desc"
           placeholder="Descripción"
+          value={infoProject.desc}
           rows="5"
           onChange={handleInfoProject}
         ></textarea>
@@ -84,6 +91,7 @@ function Form({ onChangeValue, onClickSave, cardUrl }) {
           type="text"
           name="autor"
           id="autor"
+          value={infoProject.autor}
           placeholder="Nombre"
           onChange={handleInfoProject}
         />
@@ -92,6 +100,7 @@ function Form({ onChangeValue, onClickSave, cardUrl }) {
           type="text"
           name="job"
           id="job"
+          value={infoProject.job}
           placeholder="Trabajo"
           onChange={handleInfoProject}
         />
@@ -117,5 +126,12 @@ function Form({ onChangeValue, onClickSave, cardUrl }) {
     </form>
   );
 }
+
+Form.propTypes = {
+  onChangeValue: PropTypes.func,
+  onClickSave: PropTypes.func,
+  cardUrl: PropTypes.string,
+  infoProject: PropTypes.object,
+};
 
 export default Form;

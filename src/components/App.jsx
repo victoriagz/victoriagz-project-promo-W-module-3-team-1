@@ -16,7 +16,7 @@ function App() {
       repo: "",
       demo: "",
       technologies: "React JS - HTML - CSS",
-      desc: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla, quos? Itaque, molestias eveniet laudantium adipisci vitae ratione`,
+      desc: `Diseños exclusivos para todo tipos de negocio. Nos avala nuestra amplia experiencia en materia de diseño enfocado a diversos sectores y tamaños de empresas.`,
       autor: "Emmelie Bjôrklund",
       job: "Full stack Developer",
       image:
@@ -66,6 +66,7 @@ function App() {
           onClickSave={onClickSave}
           onChangeValue={handleProjectInfo}
           cardUrl={url}
+          infoProject={infoProject}
         />
       </main>
       <Footer />

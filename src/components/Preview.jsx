@@ -1,4 +1,5 @@
 import "../scss/components/Preview.scss";
+import PropTypes from "prop-types";
 
 function Preview({ infoProject }) {
   return (
@@ -22,9 +23,7 @@ function Preview({ infoProject }) {
           <div
             className="card__authorPhoto"
             style={{
-              backgroundImage: `url(${
-                infoProject.photo || "../images/adalab.png"
-              })`,
+              backgroundImage: `url(${infoProject.photo})`,
             }}
           ></div>
           <p className="card__job">{infoProject.job}</p>
@@ -62,5 +61,8 @@ function Preview({ infoProject }) {
     </section>
   );
 }
+Preview.propTypes = {
+  infoProject: PropTypes.object,
+};
 
 export default Preview;
