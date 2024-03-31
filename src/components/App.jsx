@@ -11,18 +11,18 @@ import "../scss/components/Main.scss";
 function App() {
   const [infoProject, setInfoProject] = useState(
     localStorage.get("infoProject") || {
-      name: "Elegant Workspace",
-      slogan: "Diseños Exclusivos",
+      name: "cREACTivas",
+      slogan: "Hasta el push y más allá",
       repo: "",
       demo: "",
       technologies: "React JS - HTML - CSS",
-      desc: `Diseños exclusivos para todo tipos de negocio. Nos avala nuestra amplia experiencia en materia de diseño enfocado a diversos sectores y tamaños de empresas.`,
-      autor: "Emmelie Bjôrklund",
+      desc: `Nunca nos damos por vencidas, encontraremos la pieza que falta en el código hasta lograr aquello que se busca. Ningún bug nos doblegará, ningún conflicto podrá con nosotras.`,
+      autor: "Margarita Hamilton",
       job: "Full stack Developer",
       image:
-        "https://www.blogdelfotografo.com/wp-content/uploads/2022/01/girasol-foto-perfil.webp",
+        "https://afiescuela.storage.googleapis.com/cms_multimedia/cms_medias/files/000/001/538/original/margaret.png?1607668400",
       photo:
-        "https://www.blogdelfotografo.com/wp-content/uploads/2022/01/girasol-foto-perfil.webp",
+        "https://cdn.evalart.com/wp-content/uploads/2019/06/MujeresenTIPioneras.png",
     }
   );
 
