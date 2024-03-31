@@ -1,12 +1,14 @@
 import "../scss/components/Preview.scss";
 
-function Preview({ avatar, projectImage, infoProject }) {
+function Preview({ infoProject }) {
   return (
     <section className="preview">
       <div
         className="projectImage"
         style={{
-          backgroundImage: `url(${projectImage || "../images/ebook-example.jpg"})`,
+          backgroundImage: `url(${
+            infoProject.photo || "../images/adalab.png"
+          })`,
         }}
       ></div>
       <article className="card">
@@ -20,7 +22,9 @@ function Preview({ avatar, projectImage, infoProject }) {
           <div
             className="card__authorPhoto"
             style={{
-              backgroundImage: `url(${avatar || "../images/avatar.webp"})`,
+              backgroundImage: `url(${
+                infoProject.image || "../images/adalab.png"
+              })`,
             }}
           ></div>
           <p className="card__job">{infoProject.job}</p>

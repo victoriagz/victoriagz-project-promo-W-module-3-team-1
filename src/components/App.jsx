@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Header from "./Header";
 import Preview from "./Preview";
 import LinkButton from "./LinkButton";
@@ -7,9 +7,6 @@ import Footer from "./Footer";
 import localStorage from "../services/localStorage";
 import "../scss/App.scss";
 import "../scss/components/Main.scss";
-import defaultAvatar from "../images/avatar.webp";
-import defaultProject from "../images/ebook-example.jpg";
-
 
 function App() {
   const [infoProject, setInfoProject] = useState(
@@ -19,52 +16,38 @@ function App() {
       repo: "",
       demo: "",
       technologies: "React JS - HTML - CSS",
-      // descriptionTitle: "Product description",
       desc: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla, quos? Itaque, molestias eveniet laudantium adipisci vitae ratione`,
       autor: "Emmelie Bjôrklund",
       job: "Full stack Developer",
       image:
-      "https://www.google.com/search?sca_esv=6494f03cb68baf5a&rlz=1C5CHFA_enES840ES844&sxsrf=ACQVn09rHKvLlAIeVYnezRIFDFfwQ1uLaA:1711824521084&q=perros&tbm=isch&source=lnms&prmd=ivnbz&sa=X&ved=2ahUKEwiGz_yj05yFAxV8U6QEHV5lCWsQ0pQJegQIDRAB&biw=1434&bih=716&dpr=2#imgrc=UmrqAOU7A1ZfBM" ,
+        "https://www.blogdelfotografo.com/wp-content/uploads/2022/01/girasol-foto-perfil.webp",
       photo:
-      "https://www.google.com/search?sca_esv=6494f03cb68baf5a&rlz=1C5CHFA_enES840ES844&sxsrf=ACQVn09rHKvLlAIeVYnezRIFDFfwQ1uLaA:1711824521084&q=perros&tbm=isch&source=lnms&prmd=ivnbz&sa=X&ved=2ahUKEwiGz_yj05yFAxV8U6QEHV5lCWsQ0pQJegQIDRAB&biw=1434&bih=716&dpr=2#imgrc=UmrqAOU7A1ZfBM",
+        "https://www.blogdelfotografo.com/wp-content/uploads/2022/01/girasol-foto-perfil.webp",
     }
   );
-  const [avatar, setAvatar] = useState(defaultAvatar);
-  const [projectImage, setProjectImage] = useState(defaultProject);
+
   const [url, setUrl] = useState("");
 
- 
-  useEffect(() => {
+  const handleProjectInfo = (value, id) => {
+    setInfoProject({ ...infoProject, [id]: value });
+    console.log(infoProject);
+  };
+
+  const onClickSave = () => {
     fetch("https://dev.adalab.es/api/projectCard", {
       method: "POST",
       body: JSON.stringify(infoProject),
       headers: { "Content-type": "application/json" },
     })
       .then((response) => response.json())
-      .then((result) => { 
-         setUrl(result.cardURL);
-         console.log('result', result);
-        
-      })
-      .catch((error) => console.log(error));
-  }, []);
- 
- 
-
-  const handleProjectInfo = (value, id) => {
-    setInfoProject({ ...infoProject, [id]: value });
-    localStorage.set("infoProject", infoProject);
+      .then((result) => {
+        setUrl(result.cardURL);
+        console.log(result);
+        if (result.success) {
+          localStorage.set("infoProject", infoProject);
+        }
+      });
   };
-  const handleAvatar = (value, id) => {
-    setAvatar({...infoProject, [id]: value });
-    localStorage.set("avatar", avatar);
-  };
-
-  const handlePhoto = (value, id) => {
-    setProjectImage({...infoProject, [id]: value });
-    localStorage.set("photo", projectImage);
-  };
-
 
   return (
     <div className="container">
@@ -78,17 +61,10 @@ function App() {
           <LinkButton textContent="Ver proyectos" />
         </section>
 
-        <Preview
-          avatar={avatar}
-          projectImage={projectImage}
-          infoProject={infoProject}
-          cardUrl={url}
-        />
+        <Preview infoProject={infoProject} cardUrl={url} />
         <Form
-          setAvatar={handleAvatar}
-          setProjectImage={handlePhoto}
+          onClickSave={onClickSave}
           onChangeValue={handleProjectInfo}
-         
           cardUrl={url}
         />
       </main>

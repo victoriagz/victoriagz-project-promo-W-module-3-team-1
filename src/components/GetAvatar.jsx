@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 //import defaultAvatar from "../images/defaultAvatar.png";
 import "../scss/components/GetAvatar.scss";
 
-function GetAvatar({ setAvatar, text }) {
+function GetAvatar({ updateImage, text }) {
   // creamos una propiedad de la clase que es la que vamos a usar en varios métodos para cargar la imagen
   // esto es un manejador de ficheros
   const fr = new FileReader();
@@ -44,7 +44,7 @@ function GetAvatar({ setAvatar, text }) {
     // si la usuaria no ha elegido ningún fichero y ha puslado en cerrar la ventana de nuestro ordenador, no hago nada
   };
 
-  const getImage = () => {
+  const getImage = (ev) => {
     // cuando el navegador termina de manejar el fichero se ejecuta este método porque lo hemos indicado en  fr.addEventListener('load',  getImage);
 
     //  fr guarda información útil sobre el fichero cargado
@@ -56,7 +56,7 @@ function GetAvatar({ setAvatar, text }) {
 
     // aquí hago lifting con los datos del fichero
     // lo que haga el componente madre con esta información es otro problema diferente
-    setAvatar(image);
+    updateImage(ev);
     // updateProjectImage(image);
   };
 

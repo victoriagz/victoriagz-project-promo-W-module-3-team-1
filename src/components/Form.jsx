@@ -2,33 +2,24 @@ import Button from "./Button";
 import GetAvatar from "./GetAvatar";
 import CardUrl from "./CardUrl";
 
-function Form({
-  onChangeValue,
-  setProjectImage,
-  setAvatar,
-  onClickSave,
-  cardUrl,
-}) {
-  const handleInfoProject = (event) => {
-    const value = event.target.value;
-    const id = event.target.id;
-    onChangeValue(value, id);
-  };
-  
-  const updateAuthorPhoto = (photo) => {
-    setAvatar(photo);
-  };
-  const updateProjectPhoto = (photo) => {
-    setProjectImage(photo);
-  };
-
-  const handleSaveProject = (ev) => {
-    ev.preventDefault();
-    // onClickSave();
+function Form({ onChangeValue, onClickSave, cardUrl }) {
+  const handleInfoProject = (event, id) => {
+    if (event.target?.result) {
+      onChangeValue(event.target.result, id);
+    } else {
+      const { value, id } = event.target;
+      onChangeValue(value, id);
+    }
   };
 
   return (
-    <form className="addForm">
+    <form
+      className="addForm"
+      onSubmit={(e) => {
+        e.preventDefault();
+        onClickSave();
+      }}
+    >
       <h2 className="title">Información</h2>
       <fieldset className="addForm__group">
         <legend className="addForm__title">Cuéntanos sobre el proyecto</legend>
@@ -74,7 +65,7 @@ function Form({
           placeholder="Tecnologías"
           onChange={handleInfoProject}
         />
-       
+
         <textarea
           className="addForm__input"
           type="text"
@@ -108,18 +99,21 @@ function Form({
 
       <fieldset className="addForm__group--upload">
         <GetAvatar
-          setAvatar={updateProjectPhoto}
+          updateImage={(ev) => {
+            handleInfoProject(ev, "image");
+          }}
           text="Subir foto del proyecto"
         />
         <GetAvatar
-          setAvatar={updateAuthorPhoto}
+          updateImage={(ev) => {
+            handleInfoProject(ev, "photo");
+          }}
           text="Subir foto de la autora"
         />
 
-        <Button textContent="Guardar proyectos" onClick={handleSaveProject} />
+        <Button type="submit" textContent="Guardar proyectos" />
       </fieldset>
       {cardUrl && <CardUrl cardUrl={cardUrl} />}
-      {console.log("card", cardUrl)}
     </form>
   );
 }
